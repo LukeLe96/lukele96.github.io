@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tân Lê Duy (Luke Le) — Software Engineer & AI Systems Architect</title>
+  <meta name="description" content="Personal developer portfolio of Tân Lê Duy (Luke Le) — Software Engineer and AI Systems Architect specializing in Golang, autonomous AI agent runtimes, and high-performance infrastructure.">
+  <meta name="author" content="Tân Lê Duy (Luke Le)">
+  <link rel="canonical" href="https://lukele96.github.io/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090a0f;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.06);
+      --text: #f0f2f5;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --tag-bg: rgba(56, 189, 248, 0.1);
+      --tag-text: #7dd3fc;
+      --border-radius: 12px;
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 0 1.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 0 4rem;
+    }
+
+    header {
+      margin-bottom: 4rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      margin-bottom: 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #f0f2f5 30%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      max-width: 650px;
+      margin-bottom: 1.5rem;
+    }
+
+    .bio {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      line-height: 1.7;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #0284c7;
+      border-color: #38bdf8;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #0369a1;
+      color: #fff;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--card-border);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px var(--accent-glow);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .card-title:hover {
+      color: var(--accent);
+    }
+
+    .card-desc {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-category {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--border-radius);
+      padding: 1.25rem;
+    }
+
+    .skill-category h3 {
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 2.1rem; }
+      .grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Available for Engineering & Systems Architecture
+      </div>
+      <h1><span>Tân Lê Duy</span> (Luke Le)</h1>
+      <p class="subtitle">Software Engineer & AI Systems Architect</p>
+      <p class="bio">
+        Passionate software engineer building high-reliability distributed backend services, autonomous AI agent runtimes, and native developer toolchains. Specializing in Go, modern web infrastructure, and system automation.
+      </p>
+
+      <div class="social-links">
+        <a href="https://github.com/LukeLe96" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          GitHub Profile
+        </a>
+        <a href="mailto:suntan116@gmail.com" class="btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Contact Email
+        </a>
+        <a href="https://tahi.vn" class="btn" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          tahi.vn
+        </a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Featured Open Source & Engineering Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <a href="https://github.com/LukeLe96/os-native" class="card-title" target="_blank">os-native</a>
+            </div>
+            <p class="card-desc">
+              Zero-token, sub-second native OS superpower suite for AI agents on macOS Apple Silicon, Windows, and Linux. Delivers instant OCR, subject lifting, text-to-speech, and system indexing directly to AI coding harnesses.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">Go</span>
+            <span class="tag">Objective-C / Swift</span>
+            <span class="tag">Apple Vision</span>
+            <span class="tag">CLI</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <a href="https://github.com/LukeLe96/ccg-engine-go" class="card-title" target="_blank">ccg-engine-go</a>
+            </div>
+            <p class="card-desc">
+              Real-time multi-agent execution engine in Go. Features bounded declarative constraints, DAG task workflows, PTY orchestration, and automated governance loops.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">Go</span>
+            <span class="tag">Multi-Agent</span>
+            <span class="tag">DAG Runtimes</span>
+            <span class="tag">Distributed</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <a href="https://github.com/LukeLe96/image-prompt-long-memory" class="card-title" target="_blank">image-prompt-long-memory</a>
+            </div>
+            <p class="card-desc">
+              Adaptive image synthesis engine with feedback memory retrieval. Stores, analyzes, and iteratively refines prompt representations across generative diffusion models.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Generative AI</span>
+            <span class="tag">Vector Search</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <a href="https://github.com/LukeLe96/mcp-tahi-video" class="card-title" target="_blank">mcp-tahi-video</a>
+            </div>
+            <p class="card-desc">
+              Model Context Protocol (MCP) server providing automated video generation, layered whiteboard animation, and audio-video synchronization for agentic development.
+            </p>
+          </div>
+          <div class="tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">Model Context Protocol</span>
+            <span class="tag">Remotion / FFmpeg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Proficiencies</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <ul class="skill-list">
+            <li class="tag">Go (Golang)</li>
+            <li class="tag">TypeScript / JavaScript</li>
+            <li class="tag">Python</li>
+            <li class="tag">SQL / SQLite</li>
+            <li class="tag">Bash / Zsh</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Backend & Systems</h3>
+          <ul class="skill-list">
+            <li class="tag">REST & GraphQL APIs</li>
+            <li class="tag">Docker & Containers</li>
+            <li class="tag">Caddy & Reverse Proxies</li>
+            <li class="tag">Systemd & Linux SRE</li>
+            <li class="tag">macOS APIs / Apple Silicon</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>AI & Autonomous Agents</h3>
+          <ul class="skill-list">
+            <li class="tag">Agentic Harnesses</li>
+            <li class="tag">Model Context Protocol (MCP)</li>
+            <li class="tag">SLM Fine-tuning</li>
+            <li class="tag">Vision & OCR Pipelines</li>
+            <li class="tag">Declarative Constraints</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Web & Frontend</h3>
+          <ul class="skill-list">
+            <li class="tag">Next.js</li>
+            <li class="tag">React</li>
+            <li class="tag">Tailwind CSS</li>
+            <li class="tag">HTML5 / Modern CSS</li>
+            <li class="tag">WebSockets</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>&copy; 2026 Tân Lê Duy (Luke Le). All rights reserved.</div>
+      <div>Designed for performance and simplicity.</div>
+    </footer>
+  </div>
+</body>
+</html>
